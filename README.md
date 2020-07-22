@@ -18,6 +18,6 @@ server := smtpd.NewServer(messageHandler)
 
 // ... set up server, then add upstream proxy IP addresses
 allowProxyIPs := []string{"10.0.0.1", "10.0.0.2"}
-handler := ProxyHandlerV1{ TrustIPs: allowProxyIPs }
+handler := proxyhandler.ProxyHandlerV1{ TrustIPs: allowProxyIPs }
 server.Extend("PROXY", handler)
 ```
