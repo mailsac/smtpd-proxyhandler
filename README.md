@@ -13,7 +13,7 @@ This package allows an upstream proxy to modify the end user IP address on an SM
 ```go
 import (
     proxyhandler "github.com/mailsac/smtpd-proxyhandler"
-    "github.com/ruffrey/smtpd"
+    "github.com/mailsac/smtpd"
 )
 
 server := smtpd.NewServer(messageHandler)
