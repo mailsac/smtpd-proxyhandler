@@ -1,5 +1,5 @@
 # smtpd-proxyhandler
-HAProxy SMTP proxy-protocol handler for extending the golang [mailsac mailproto/smtpd fork](https://github.com/ruffrey/smtpd) library.
+HAProxy SMTP proxy-protocol handler for extending the golang [mailsac mailproto/smtpd fork](https://github.com/mailsac/smtpd) library.
 
 https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt
 
