@@ -3,12 +3,12 @@ package proxyhandler
 import (
 	"errors"
 	"fmt"
-	"github.com/ruffrey/smtpd"
+	"github.com/mailsac/smtpd"
 	"strings"
 )
 
 // ProxyHandlerV1 pre checks IPs to see if they are from haproxy
-type ProxyHandlerV1 struct{
+type ProxyHandlerV1 struct {
 	TrustIPs []string
 }
 
@@ -32,7 +32,6 @@ func (p *ProxyHandlerV1) Handle(conn *smtpd.Conn, methodBody string) error {
 	conn.ForwardedForIP = phead.EndUserIP
 	return nil
 }
-
 
 // EHLO also exports expected behavior
 func (p *ProxyHandlerV1) EHLO() string {

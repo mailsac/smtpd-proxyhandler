@@ -1,20 +1,20 @@
 package proxyhandler
 
 import (
-	"github.com/ruffrey/smtpd"
+	"github.com/mailsac/smtpd"
 	"net"
 	"testing"
 )
 
-func Test_ProxyHandlerV1 (t *testing.T) {
-	t.Run("ehlo", func (t *testing.T) {
+func Test_ProxyHandlerV1(t *testing.T) {
+	t.Run("ehlo", func(t *testing.T) {
 		proxyIPs := []string{"10.0.0.1", "10.0.0.2"}
-		p := ProxyHandlerV1{ TrustIPs: proxyIPs }
+		p := ProxyHandlerV1{TrustIPs: proxyIPs}
 		p.EHLO()
 	})
-	t.Run("throws error when proxy not supported", func (t *testing.T) {
+	t.Run("throws error when proxy not supported", func(t *testing.T) {
 		proxyIPs := []string{"10.0.0.5"}
-		p := ProxyHandlerV1{ TrustIPs: proxyIPs }
+		p := ProxyHandlerV1{TrustIPs: proxyIPs}
 		server, client := net.Pipe()
 		defer server.Close()
 		defer client.Close()
@@ -29,9 +29,9 @@ func Test_ProxyHandlerV1 (t *testing.T) {
 			t.Fail()
 		}
 	})
-	t.Run("sets and trusts IP when proxied", func (t *testing.T) {
+	t.Run("sets and trusts IP when proxied", func(t *testing.T) {
 		proxyIPs := []string{"pipe"} // would be IP address in real life
-		p := ProxyHandlerV1{ TrustIPs: proxyIPs }
+		p := ProxyHandlerV1{TrustIPs: proxyIPs}
 		server, client := net.Pipe()
 		defer server.Close()
 		defer client.Close()
